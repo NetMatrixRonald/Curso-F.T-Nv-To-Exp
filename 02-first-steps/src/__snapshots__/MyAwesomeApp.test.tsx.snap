@@ -1,0 +1,32 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`MyAweSomeApp > Should match snapshot 1`] = `
+<div>
+  <div>
+    <h1
+      data-testid="firstName"
+    >
+      Pochita
+    </h1>
+    <h3>
+      Sierra
+    </h3>
+    <p
+      class="mi-clase-favorita"
+    >
+      Residen Evil Requiem, Horizon Forbidden West, God of War Ragnarok
+       - 
+      Game is RER
+    </p>
+    <p>
+      4
+    </p>
+    <li
+      style="background-color: red; border-radius: 40px; padding: 10px;"
+    >
+      {"zipCode":"ABC-123","street":"Maple Street","city":"Los Angeles"}
+          
+    </li>
+  </div>
+</div>
+`;
