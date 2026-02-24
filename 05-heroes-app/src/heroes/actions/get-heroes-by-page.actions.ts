@@ -1,0 +1,1 @@
+export const getHeroesByPage = async (page: number, limit: number) => {}

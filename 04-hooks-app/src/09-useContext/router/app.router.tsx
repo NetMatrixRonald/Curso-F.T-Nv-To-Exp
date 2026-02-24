@@ -1,6 +1,6 @@
 import { createBrowserRouter, Navigate } from 'react-router';
 
-import { AboutPage } from '../pages/about/AboutPage';
+import { AboutPage } from '../pages/about/aboutPage';
 import { ProfilePage } from '../pages/profile/ProfilePage';
 import { LoginPage } from '../pages/auth/LoginPage';
 import { PrivateRoute } from './PrivateRoute';
