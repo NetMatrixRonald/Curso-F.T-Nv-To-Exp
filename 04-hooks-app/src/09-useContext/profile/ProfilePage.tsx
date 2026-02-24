@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button'
-import { userContext } from '@/09-useContext/context/UserContext'
-import { users } from '@/09-useContext/data/User-mock.data'
+import { UserContext } from '@/09-useContext/context/UserContext'
+import { users } from '@/09-useContext/data/user-mock.data'
 import { useContext } from 'react'
 
 
@@ -9,7 +9,7 @@ import { useContext } from 'react'
 
 const ProfilePage = () => {
 
-  const { user, } = useContext(userContext)
+  const { user } = useContext(UserContext)
 
   const userData = users.find(u => u.id === user?.id)
 

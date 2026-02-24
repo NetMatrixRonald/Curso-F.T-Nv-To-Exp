@@ -1,24 +1,26 @@
+import { createBrowserRouter, Navigate } from 'react-router';
 
-import { createBrowserRouter, Navigate } from "react-router";
-import AboutPage from "../pages/about/aboutPage";
-import ProfilePage from "../profile/ProfilePage";
-import LoginPage from "../pages/auth/LoginPage";
+import { AboutPage } from '../pages/about/AboutPage';
+import { ProfilePage } from '../pages/profile/ProfilePage';
+import { LoginPage } from '../pages/auth/LoginPage';
+import { PrivateRoute } from './PrivateRoute';
 
-export const AppRouter = createBrowserRouter([
-    {
-            path: '/about',
-            element: <AboutPage/>
-    },
-    {
-         path: '/profile',
-        element: <ProfilePage/>
-    },
-    {
-         path: '/login',
-        element: <LoginPage/>
-    },
-    {
-        path: '*',
-        element: <Navigate to="/about" />
-    }
-])
+export const appRouter = createBrowserRouter([
+  {
+    path: '/',
+    element: <AboutPage />,
+  },
+  {
+    path: '/profile',
+    // element: <ProfilePage />,
+    element: <PrivateRoute element={<ProfilePage />} />,
+  },
+  {
+    path: '/login',
+    element: <LoginPage />,
+  },
+  {
+    path: '*',
+    element: <Navigate to="/" />,
+  },
+]);

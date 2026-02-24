@@ -1,48 +1,40 @@
-import React, { useCallback, useState } from 'react'
-import MyTittle from './ui/MyTittle'
-import MySubtittle from './ui/MySubtittle'
-import { date } from 'zod/v4'
-import { Subtitles } from 'lucide-react'
+import { useCallback, useState } from 'react';
+import { MyTitle } from './ui/MyTitle';
+import { MySubTitle } from './ui/MySubTitle';
 
-const MemoHook = () => {
+// const handleMyApiCall = (myValue: string) => {
+//   console.log('Llamar a mi API ' + myValue);
+// };
 
-    const handleMyApiCall = (myValue: string) => {
-        console.log('Llamando a mi API', myValue)
-    }
+export const MemoHook = () => {
+  const [title, setTitle] = useState('Hola');
+  const [subTitle, setSubTitle] = useState('Mundo');
 
-    const [tittle, settittle] = useState('Hola')
-    const [subtittle, setsubtittle] = useState('Mundo')
-
-    // const handleMyAPICall = useCallback(() => {
-    //     console.log('Llamando a mi API - ' + subtittle)
-    // }, [subtittle])
-
+  const handleMyAPICall = useCallback(() => {
+    console.log('Llamar a mi API - ', subTitle);
+  }, [subTitle]);
 
   return (
-    <div className='bg-gradient flex flex-col gap-4'>
+    <div className="bg-gradient flex flex-col gap-4">
+      <h1 className="text-2xl font-thin text-white">MemoApp</h1>
 
-      <h1 className='text-2xl font-thin text-white'>Memo Hook</h1>
+      <MyTitle title={title} />
+      <MySubTitle subtitle={subTitle} callMyAPI={handleMyAPICall} />
 
-        <MyTittle title={tittle}/>
+      <button
+        className="bg-blue-500 text-white px-4 py-2 rounded-md cursor-pointer"
+        onClick={() => setTitle('Hello, ' + new Date().getTime())}
+      >
+        Cambiar título
+      </button>
 
-        <MySubtittle subtittle={subtittle} callMyAPI={handleMyApiCall(subtittle)}/>
-        
-
-        
-
-
-        <button className='bg-blue-500 text-white px-4 py-2 rounded-md cursor-pointer'
-        onClick={() => settittle('Hello, ' + new Date().getTime())}>
-            Cambiar Titulo
-        </button>
-
-        <button className='bg-blue-500 text-white px-4 py-2 rounded-md cursor-pointer'
-        // onClick={() => setsubtittle('World, ' + new Date().getTime())}>
-        onClick={() => setsubtittle('World')}>
-            Cambiar Subtitulo
-        </button>
+      <button
+        className="bg-blue-500 text-white px-4 py-2 rounded-md cursor-pointer"
+        // onClick={() => setSubTitle('World, ' + new Date().getTime())}
+        onClick={() => setSubTitle('World')}
+      >
+        Cambiar subtitulo
+      </button>
     </div>
-  )
-}
-
-export default MemoHook
+  );
+};
